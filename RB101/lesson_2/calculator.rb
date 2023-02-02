@@ -14,7 +14,20 @@ def valid_number?(num)
   num.to_i() != 0
 end
 
-prompt("Welcome to calculator!")
+prompt("Welcome to calculator! Enter your name:")
+
+name = ''
+loop do
+  name = Kernel.gets().chomp()
+
+  if name.empty?()
+    prompt("Make sure to use a valid name.")
+  else
+    break
+  end
+end
+
+prompt("Hi #{name}")
 
 loop do
   loop do
@@ -49,7 +62,7 @@ loop do
            when '3'
             number1.to_i * number2.to_i()
            when '4'
-            number1.to_f() / number2.to_i()
+            number1.to_f() / number2.to_f()
            else
             prompt("Invalid operator")
            end

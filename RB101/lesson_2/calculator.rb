@@ -11,20 +11,22 @@ def prompt(message)
 end
 
 def valid_number?(num)
-  num.match?(/[1-9][0-9]?/)
+  # num.match?(/[1-9][0-9]?/)
+  num.to_i.to_s == num || num.to_f.to_s == num
 end
 
 def operation_to_message(op)
-  case op
-  when '1'
-    'Adding'
-  when '2'
-    'Subtracting'
-  when '3'
-    'Multiplying'
-  when '4'
-    'Dividing'
-  end
+  word = case op
+         when '1'
+           'Adding'
+         when '2'
+           'Subtracting'
+         when '3'
+           'Multiplying'
+         when '4'
+           'Dividing'
+         end
+  word
 end
 
 prompt("Welcome to calculator! Enter your name:")

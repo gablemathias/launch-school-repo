@@ -1,3 +1,6 @@
+require 'yaml'
+MESSAGES = YAML.load_file('calculator_messages.yml')
+puts MESSAGES.inspect
 # ask the user for two numbers
 # ask the user for which operation to perform
 # perform the operation on the two numbers
@@ -29,14 +32,14 @@ def operation_to_message(op)
   word
 end
 
-prompt("Welcome to calculator! Enter your name:")
+prompt(MESSAGES['welcome'])
 
 name = ''
 loop do
   name = gets.chomp
 
   if name.empty?
-    prompt("Make sure to use a valid name.")
+    prompt(MESSAGES['valid_name'])
   else
     break
   end
@@ -46,34 +49,28 @@ prompt("Hi #{name}")
 
 loop do
   loop do
-    prompt("What's the first number?")
+    prompt(MESSAGES['first_number'])
     number1 = gets.chomp
 
     if valid_number?(number1)
       break
     else
-      prompt("Hmmm.. that doesn't look like a valid number")
+      prompt(MESSAGES['valid_number'])
     end
   end
 
   loop do
-    prompt("What's the second number?")
+    prompt(MESSAGES['second_number'])
     number2 = gets.chomp
 
     if valid_number?(number2)
       break
     else
-      prompt("Hmmm.. that doesn't look like a valid number")
+      prompt(MESSAGES['valid_number'])
     end
   end
 
-  operator_prompt = <<-MSG
-    What operation would you like to perform?
-    1) add
-    2) subtract
-    3) multiply
-    4) divide
-  MSG
+  operator_prompt = MESSAGES['choices']
 
   prompt(operator_prompt)
 
@@ -85,7 +82,7 @@ loop do
     if %w(1 2 3 4).include?(operator)
       break
     else
-      prompt("must choose 1,2,3 or 4")
+      prompt(MESSAGES['valid_choice'])
     end
   end
 
@@ -101,14 +98,14 @@ loop do
            when '4'
              number1.to_f() / number2.to_f()
            else
-             prompt("Invalid operator")
+             prompt(MESSAGES['invalid_operation'])
            end
 
   prompt("The result is #{result}")
 
-  prompt("Do you want to perform another calculation? (Y to calculate again)")
+  prompt(MESSAGES['another_calculation?'])
   answer = gets.chomp
   break unless answer.downcase().start_with?('y')
 end
 
-prompt("Thank you for using the calculator! See ya")
+prompt(MESSAGES['goodbye'])

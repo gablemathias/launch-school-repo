@@ -1,5 +1,4 @@
 require 'yaml'
-require 'pry'
 MESSAGES = YAML.load_file('calculator_messages.yml')
 LANGUAGE = 'en'
 
@@ -50,8 +49,7 @@ loop do
   end
 end
 
-prompt("Hi #{name}")
-binding.pry
+puts("#{MESSAGES[LANGUAGE]['hello']} #{name}")
 loop do
   loop do
     prompt('first_number')
@@ -91,8 +89,6 @@ loop do
     end
   end
 
-  prompt("#{operation_to_message(operator)} the two numbers...")
-
   result = case operator
            when '1'
              number1.to_i + number2.to_i()
@@ -106,7 +102,7 @@ loop do
              prompt('invalid_operation')
            end
 
-  prompt("The result is #{result}")
+  puts("#{MESSAGES[LANGUAGE]['result']} #{result}")
 
   prompt('another_calculation?')
   answer = gets.chomp

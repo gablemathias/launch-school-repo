@@ -1,6 +1,7 @@
 en:
   welcome: "Welcome to calculator! Enter your name:"
   valid_name: "Make sure to use a valid name"
+  hello: "Hi"
   valid_number: "Hmmm.. that doesn't look like a valid number"
   first_number: "What's the first number?"
   second_number: "What's the second number?"
@@ -11,10 +12,12 @@ en:
   3) multiply \n
   4) divide"
   invalid_operation: "Invalid operator"
+  result: "The result is"
   another_calculation?: "Do you want to perform another calculation? (Y to calculate again)"
   goodbye: "Thank you for using the calculator! See ya"
 pt:
   welcome: "Bem vindo! Digite seu nome:"
+  hello: "Olá"
   valid_name: "Utilize um nome válido"
   valid_number: "Não parece ser um número válido"
   first_number: "Qual o primeiro número?"
@@ -26,5 +29,6 @@ pt:
   3) multiplicação \n
   4) divisão"
   invalid_operation: "Operador inválido"
+  result: "O resultado da operação é"
   another_calculation?: "Você quer fazer outro cálculo? (Y para calcular de novo)"
   goodbye: "Obrigado por usar a calculadora. Até mais"

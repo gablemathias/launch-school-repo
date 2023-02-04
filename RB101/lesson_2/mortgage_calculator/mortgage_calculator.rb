@@ -21,7 +21,7 @@ end
 def monthly_payment(l_amount, m_interest, l_duration)
   monthly_payment = l_amount *
                     (m_interest / (1 - (1 + m_interest)**(-l_duration)))
-  format("%.f", monthly_payment)
+  format("%.2f", monthly_payment)
 end
 
 prompt("Hello, what's the loan amount?")

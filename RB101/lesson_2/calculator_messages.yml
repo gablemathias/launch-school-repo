@@ -1,14 +1,30 @@
-welcome: "Welcome to calculator! Enter your name:"
-valid_name: "Make sure to use a valid name"
-valid_number: "Hmmm.. that doesn't look like a valid number"
-first_number: "What's the first number?"
-second_number: "What's the second number?"
-valid_choice: "Must choose 1,2,3 or 4"
-choices: "What operation would you like to perform? \n
-1) add \n
-2) subtract \n
-3) multiply \n
-4) divide"
-invalid_operation: "Invalid operator"
-another_calculation?: "Do you want to perform another calculation? (Y to calculate again)"
-goodbye: "Thank you for using the calculator! See ya"
+en:
+  welcome: "Welcome to calculator! Enter your name:"
+  valid_name: "Make sure to use a valid name"
+  valid_number: "Hmmm.. that doesn't look like a valid number"
+  first_number: "What's the first number?"
+  second_number: "What's the second number?"
+  valid_choice: "Must choose 1,2,3 or 4"
+  choices: "What operation would you like to perform? \n
+  1) add \n
+  2) subtract \n
+  3) multiply \n
+  4) divide"
+  invalid_operation: "Invalid operator"
+  another_calculation?: "Do you want to perform another calculation? (Y to calculate again)"
+  goodbye: "Thank you for using the calculator! See ya"
+pt:
+  welcome: "Bem vindo! Digite seu nome:"
+  valid_name: "Utilize um nome válido"
+  valid_number: "Não parece ser um número válido"
+  first_number: "Qual o primeiro número?"
+  second_number: "Qual o segundo número?"
+  valid_choice: "Deve escolher entre 1,2,3 ou 4"
+  choices: "Qual operação você quer usar? \n
+  1) soma \n
+  2) subtração \n
+  3) multiplicação \n
+  4) divisão"
+  invalid_operation: "Operador inválido"
+  another_calculation?: "Você quer fazer outro cálculo? (Y para calcular de novo)"
+  goodbye: "Obrigado por usar a calculadora. Até mais"

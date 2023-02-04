@@ -1,12 +1,22 @@
 require 'yaml'
+require 'pry'
 MESSAGES = YAML.load_file('calculator_messages.yml')
-puts MESSAGES.inspect
+LANGUAGE = 'en'
+
+def messages(message, lang='en')
+  MESSAGES[lang][message]
+end
 
 number1 = ''
 number2 = ''
 
-def prompt(message)
-  puts("=> #{message}")
+def prompt(key)
+  message = messages(key, LANGUAGE)
+  unless message.nil?
+    puts("=> #{message}")
+  else
+    puts(key)
+  end
 end
 
 def valid_number?(num)
@@ -27,45 +37,45 @@ def operation_to_message(op)
   word
 end
 
-prompt(MESSAGES['welcome'])
+prompt('welcome')
 
 name = ''
 loop do
   name = gets.chomp
 
   if name.empty?
-    prompt(MESSAGES['valid_name'])
+    prompt('valid_name')
   else
     break
   end
 end
 
 prompt("Hi #{name}")
-
+binding.pry
 loop do
   loop do
-    prompt(MESSAGES['first_number'])
+    prompt('first_number')
     number1 = gets.chomp
 
     if valid_number?(number1)
       break
     else
-      prompt(MESSAGES['valid_number'])
+      prompt('valid_number')
     end
   end
 
   loop do
-    prompt(MESSAGES['second_number'])
+    prompt('second_number')
     number2 = gets.chomp
 
     if valid_number?(number2)
       break
     else
-      prompt(MESSAGES['valid_number'])
+      prompt('valid_number')
     end
   end
 
-  operator_prompt = MESSAGES['choices']
+  operator_prompt = 'choices'
 
   prompt(operator_prompt)
 
@@ -77,7 +87,7 @@ loop do
     if %w(1 2 3 4).include?(operator)
       break
     else
-      prompt(MESSAGES['valid_choice'])
+      prompt('valid_choice')
     end
   end
 
@@ -93,14 +103,14 @@ loop do
            when '4'
              number1.to_f() / number2.to_f()
            else
-             prompt(MESSAGES['invalid_operation'])
+             prompt('invalid_operation')
            end
 
   prompt("The result is #{result}")
 
-  prompt(MESSAGES['another_calculation?'])
+  prompt('another_calculation?')
   answer = gets.chomp
   break unless answer.downcase().start_with?('y')
 end
 
-prompt(MESSAGES['goodbye'])
+prompt('goodbye')

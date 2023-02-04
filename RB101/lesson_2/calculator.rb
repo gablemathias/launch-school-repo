@@ -1,10 +1,6 @@
 require 'yaml'
 MESSAGES = YAML.load_file('calculator_messages.yml')
 puts MESSAGES.inspect
-# ask the user for two numbers
-# ask the user for which operation to perform
-# perform the operation on the two numbers
-# output the result
 
 number1 = ''
 number2 = ''
@@ -14,7 +10,6 @@ def prompt(message)
 end
 
 def valid_number?(num)
-  # num.match?(/[1-9][0-9]?/)
   num.to_i.to_s == num || num.to_f.to_s == num
 end
 

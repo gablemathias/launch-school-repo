@@ -18,9 +18,10 @@ def prompt(message)
   puts("=> #{message}")
 end
 
-def monthly_payment(l_amount, m_interest, loan_duration)
-  mp = l_amount * (m_interest / (1 - (1 + m_interest)**(-loan_duration)))
-  mp.truncate(2)
+def monthly_payment(l_amount, m_interest, l_duration)
+  monthly_payment = l_amount *
+                    (m_interest / (1 - (1 + m_interest)**(-l_duration)))
+  format("%.f", monthly_payment)
 end
 
 prompt("Hello, what's the loan amount?")

@@ -4,15 +4,15 @@ def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
-def display_result(player, computer)
+def result(player, computer)
   if (player == 'rock' && computer == 'scissors') ||
     (player == 'paper' && computer == 'rock') ||
     (player == 'scissors' && computer == 'paper')
-   prompt("You won!")
+   "You won!"
  elsif (player == computer)
-   prompt("A tie!")
+   "A tie!"
  else
-   prompt("Computer won!")
+   "Computer won!"
  end
 end
 
@@ -20,7 +20,7 @@ def valid?(choice)
   VALID_CHOICES.include?(choice)
 end
 
-def play_again
+def play_again?
   prompt("Do you want to play again?")
   answer = Kernel.gets().chomp().downcase
   answer.start_with?('y')
@@ -38,10 +38,10 @@ loop do
 
   computer_choice = VALID_CHOICES.sample
 
-  display_result(choice, computer_choice)
+  puts result(choice, computer_choice)
   prompt("You choose: #{choice}; Computer choose: #{computer_choice}")
 
-  break unless play_again()
+  break unless play_again?()
 end
 
 prompt("Thank you for playing!")

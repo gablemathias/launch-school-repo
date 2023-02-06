@@ -1,4 +1,4 @@
-VALID_CHOICES = ['rock', 'paper', 'scissors']
+VALID_CHOICES = %w(rock paper scissors)
 WIN_CHOICES = [['rock', 'scissors'], ['paper', 'rock'], ['scissors', 'paper']]
 
 def prompt(message)

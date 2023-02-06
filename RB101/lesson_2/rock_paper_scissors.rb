@@ -1,19 +1,18 @@
 VALID_CHOICES = ['rock', 'paper', 'scissors']
+WIN_CHOICES = [['rock', 'scissors'], ['paper', 'rock'], ['scissors', 'paper']]
 
 def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
 def result(player, computer)
-  if (player == 'rock' && computer == 'scissors') ||
-    (player == 'paper' && computer == 'rock') ||
-    (player == 'scissors' && computer == 'paper')
-   "You won!"
- elsif (player == computer)
-   "A tie!"
- else
-   "Computer won!"
- end
+  if WIN_CHOICES.include?([player, computer])
+    "You won!"
+  elsif player == computer
+    "A tie!"
+  else
+    "Computer won!"
+  end
 end
 
 def valid?(choice)

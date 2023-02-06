@@ -5,13 +5,13 @@ def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
-def result(player, computer)
-  if WIN_CHOICES.include?([player, computer])
+def win?(first, second)
+  if WIN_CHOICES.include?([first, second])
     "You won!"
-  elsif player == computer
-    "A tie!"
-  else
+  elsif WIN_CHOICES.include?([second, first])
     "Computer won!"
+  else
+    "It's a tie!"
   end
 end
 
@@ -37,7 +37,7 @@ loop do
 
   computer_choice = VALID_CHOICES.sample
 
-  puts result(choice, computer_choice)
+  puts win?(choice, computer_choice)
   prompt("You choose: #{choice}; Computer choose: #{computer_choice}")
 
   break unless play_again?()

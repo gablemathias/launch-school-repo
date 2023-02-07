@@ -1,6 +1,6 @@
 VALID_CHOICES = %w(rock paper scissors lizard spock)
 WIN_CHOICES = [['rock', 'scissors'], ['paper', 'rock'], ['scissors', 'paper'],
-               ['rock', 'lizard'], ['lizard', 'spock'], ['spock','scissors'],
+               ['rock', 'lizard'], ['lizard', 'spock'], ['spock', 'scissors'],
                ['scissors', 'lizard'], ['lizard', 'paper'], ['paper', 'spock'],
                ['spock', 'rock']]
 
@@ -27,7 +27,7 @@ def play_again?
 end
 
 def retrieve(choice)
-  choice = VALID_CHOICES.select {|elem| elem.start_with?(choice)}
+  choice = VALID_CHOICES.select { |elem| elem.start_with?(choice) }
   if choice.size > 1
     prompt("Choose between #{choice.join(', ')}")
     choice = gets().chomp()
@@ -49,9 +49,10 @@ def end_game?(player_score, computer_score)
   end
 end
 
-def game
+loop do
   player_score = 0
   computer_score = 0
+
   loop do
     choice = ''
 
@@ -81,12 +82,8 @@ def game
 
     break if end_game?(player_score, computer_score)
   end
-end
 
-game()
-
-while play_again?() do
-  game()
+  break unless play_again?()
 end
 
 prompt("Thank you for playing!")

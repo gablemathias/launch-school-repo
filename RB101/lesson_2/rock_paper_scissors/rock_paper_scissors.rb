@@ -1,5 +1,8 @@
-VALID_CHOICES = %w(rock paper scissors)
-WIN_CHOICES = [['rock', 'scissors'], ['paper', 'rock'], ['scissors', 'paper']]
+VALID_CHOICES = %w(rock paper scissors lizard spock)
+WIN_CHOICES = [['rock', 'scissors'], ['paper', 'rock'], ['scissors', 'paper'],
+               ['rock', 'lizard'], ['lizard', 'spock'], ['spock','scissors'],
+               ['scissors', 'lizard'], ['lizard', 'paper'], ['paper', 'spock']
+               ['spock', 'rock']]
 
 def prompt(message)
   Kernel.puts("=> #{message}")

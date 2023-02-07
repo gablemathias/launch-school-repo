@@ -1,7 +1,7 @@
 VALID_CHOICES = %w(rock paper scissors lizard spock)
 WIN_CHOICES = [['rock', 'scissors'], ['paper', 'rock'], ['scissors', 'paper'],
                ['rock', 'lizard'], ['lizard', 'spock'], ['spock','scissors'],
-               ['scissors', 'lizard'], ['lizard', 'paper'], ['paper', 'spock']
+               ['scissors', 'lizard'], ['lizard', 'paper'], ['paper', 'spock'],
                ['spock', 'rock']]
 
 def prompt(message)
@@ -47,3 +47,6 @@ loop do
 end
 
 prompt("Thank you for playing!")
+
+# Make the user utilize options as numbers to choice the value
+#

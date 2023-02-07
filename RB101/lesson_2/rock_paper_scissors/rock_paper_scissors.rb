@@ -28,11 +28,22 @@ def play_again?
   answer.start_with?('y')
 end
 
+def retrieve(choice)
+  choice = VALID_CHOICES.select {|elem| elem.start_with?(choice)}
+  if choice.size > 1
+    prompt("Choose between #{choice.join(', ')}")
+    choice = gets().chomp()
+    retrieve(choice)
+  else
+    choice.join
+  end
+end
+
 loop do
   choice = ''
   loop do
     prompt("Choose one: #{VALID_CHOICES.join(', ')}")
-    choice = Kernel.gets().chomp().downcase()
+    choice = retrieve(Kernel.gets().chomp().downcase())
 
     break if valid?(choice)
     prompt("That's not a valid choice.")
@@ -47,6 +58,3 @@ loop do
 end
 
 prompt("Thank you for playing!")
-
-# Make the user utilize options as numbers to choice the value
-#

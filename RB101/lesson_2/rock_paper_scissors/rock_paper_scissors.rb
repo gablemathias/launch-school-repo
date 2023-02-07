@@ -1,19 +1,20 @@
 VALID_CHOICES = %w(rock paper scissors lizard spock)
-WIN_CHOICES = [['rock', 'scissors'], ['paper', 'rock'], ['scissors', 'paper'],
-               ['rock', 'lizard'], ['lizard', 'spock'], ['spock', 'scissors'],
-               ['scissors', 'lizard'], ['lizard', 'paper'], ['paper', 'spock'],
-               ['spock', 'rock']]
+WIN_CHOICES = { 'rock' => ['scissors', 'lizard'],
+                'paper' => ['rock', 'spock'],
+                'scissors' => ['paper', 'lizard'],
+                'lizard' => ['paper', 'spock'],
+                'spock' => ['rock', 'scissors'] }
 
 def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
 def win?(first, second)
-  WIN_CHOICES.include?([first, second])
+  WIN_CHOICES[first].include?(second)
 end
 
 def lose?(first, second)
-  WIN_CHOICES.include?([second, first])
+  WIN_CHOICES[second].include?(first)
 end
 
 def valid?(choice)

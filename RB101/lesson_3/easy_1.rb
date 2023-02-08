@@ -36,3 +36,18 @@ advice.gsub!('important', 'urgent')
 # 5.
 (10..100).include?(42)
 (10..100).cover?(42)
+
+# 6.
+famous_words = "seven years ago..."
+famous_words = "Four score and #{famous_words}"
+famous_words = "Four scode and" + famous_words
+famous_words.prepend("Four score and") # Mutation method
+
+# 7.
+flintstones.flatten! # Mutate the caller
+
+# 8.
+flintstones = { "Fred" => 0, "Wilma" => 1, "Barney" => 2, "Betty" => 3,
+                "BamBam" => 4, "Pebbles" => 5 }
+flintstones = [flintstones.key(2), flintstones['Barney']]
+flintstones.assoc('Barney')

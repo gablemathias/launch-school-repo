@@ -27,9 +27,15 @@
 
 # Code
 
+puts "Hello, what's your name?"
+name = gets.chomp 
 
 10.times do 
   age = rand(20..200)
-  
-  puts "Teddy is #{age} years old!"
+
+  unless name.empty? 
+    puts "#{name} is #{age} years old!"
+  else
+    puts "Teddy is #{age} years old!"
+  end
 end
